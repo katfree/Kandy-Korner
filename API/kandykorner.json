@@ -1,0 +1,47 @@
+{
+  "locations": [
+    {
+      "id": 1,
+      "address": "100 Kandy Way"
+    },
+    {
+      "id": 2,
+      "address": "555 Sweet Lane"
+    }
+  ],
+  "employees": [
+    {
+      "id": 2,
+      "name": "Angela Martin"
+    },
+    {
+      "id": 3,
+      "name": "Dwight Shrute"
+    },
+    {
+      "id": 4,
+      "name": "Michael Scott"
+    }
+  ],
+  "candyTypes": [
+    {
+      "id": 1,
+      "type": "Chocolate"
+    },
+    {
+      "id": 2,
+      "type": "Cour"
+    },
+    {
+      "id": 3,
+      "type": "Sweet"
+    }
+  ],
+  "individualCandies": [
+    {
+      "id": 3,
+      "name": "Gummy Worms",
+      "typeId": 2
+    }
+  ]
+}
