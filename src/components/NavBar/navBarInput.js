@@ -3,48 +3,37 @@ import React, { Component } from 'react';
 
 
 class SearchInput extends Component {
+ userInput = React.createRef();
 
-    constructor(props) {
-        super(props);
-        this.state = { value: '' };
-
-        this.handleFieldChange = this.handleFieldChange.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-    }
-
-    state = {
-        searchId: ""
-    }
-    handleFieldChange = event => {
-
-        this.setState({value: event.target.value});
-
-
-
+    handleSubmit = (event) => {
+        event.preventDefault()
     }
     handleKeyPress = (event) => {
-                if (event.charCode === 13) {
-                    console.log("enter press here! ")
-                    console.log(this.state.value)
-                    const thisvalue = this.state.value
-                    fetch(`http://localhost:5002/locations?address_like=${thisvalue}`)
-                .then(r => r.json())
+        if (event.charCode === 13) {
+            console.log("enter press here! ")
+            console.log(this.userInput.current.value)
+            const thisvalue = this.userInput.current.value
+            fetch(`http://localhost:5002/locations?address_like=${thisvalue}`)
+            .then(response => console.log(response.json()) )
+            fetch(`http://localhost:5002/employees?name_like=${thisvalue}`)
+            .then(response => console.log(response.json()) )
 
 
-                }
+
+
+        }
 
     }
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <label htmlFor="search">
                     <input
                         placeholder="Search"
                         type="text"
                         onKeyPress={this.handleKeyPress}
-                        value={this.state.value}
-                        onChange={this.handleFieldChange}
                         id="searchId"
+                        ref={this.userInput}
                     />
 
                 </label>
